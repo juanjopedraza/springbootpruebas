@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="playlist.xsl"?>
+<playlist>
+   	<cancion id="1">
+    	<grupo>The Psychedelic Furs</grupo>
+    	<titulo>Pretty In Pink</titulo>
+ 	</cancion>
+ 	<cancion id="2">
+    	<grupo>Ultravox</grupo>
+    	<titulo>Vienna</titulo>
+ 	</cancion>
+ 	<cancion id="3">
+    	<grupo>The Church</grupo>
+    	<titulo>Reptile</titulo>
+ 	</cancion>
+ 	<cancion id="4">
+    	<grupo>Simple Minds</grupo>
+    	<titulo>Speed Your Love To Me</titulo>
+ 	</cancion> 	
+ 	<cancion id="5">
+    	<grupo>Depeche Mode</grupo>
+    	<titulo>People Are People</titulo>
+ 	</cancion>
+ 	 <cancion id="6">
+    	<grupo>The Smiths</grupo>
+    	<titulo>Hand In Glove</titulo>
+ 	</cancion>
+ 	<cancion id="7">
+    	<grupo>Duran Duran</grupo>
+    	<titulo>Notorius</titulo>
+ 	</cancion> 	
+ 	<cancion id="8">
+    	<grupo>The Police</grupo>
+    	<titulo>The Bed's Too Big Without You</titulo>
+ 	</cancion>
+ 	<cancion id="9">
+    	<grupo>Thin Lizzy</grupo>
+    	<titulo>The Boys Are Back In Town</titulo>
+ 	</cancion> 
+ </playlist>

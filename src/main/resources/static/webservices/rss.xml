@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>RSS Servicios Web</title>
+  <link>http://localhost/webservices/rss.xml</link>
+  <description>Un canal RSS de RSS</description>
+  <item>
+    <title>Portada</title>
+    <link>https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada.xml</link>
+    <description>Noticias de la portada de El País</description>
+  </item>
+  <item>
+    <title>Noticias más vistas</title>
+    <link>http://ep00.epimg.net/rss/tags/noticias_mas_vistas.xml</link>
+    <description>Noticias más vistas en El País</description>
+  </item>
+  <item>
+    <title>Noticias de técnología</title>
+    <link>https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada</link>
+    <description>Noticias de técnología El País</description>
+  </item>
+  
+</channel>
+
+</rss>

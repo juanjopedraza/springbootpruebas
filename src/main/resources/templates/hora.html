@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" media="all"
+      th:href="'/css/' + ${background} + '.css'">
+    <title th:text="${fechahora}">Hora</title>
+  </head>
+  <body>
+    <h1>Hola thymeleaf hoy es ...</h1>
+    <h1 th:text="${fechahora}">Aquí va la fecha hora</h1>
+    
+  </body>
+</html>
