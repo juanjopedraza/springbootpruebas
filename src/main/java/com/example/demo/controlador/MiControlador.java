@@ -61,6 +61,7 @@ public class MiControlador {
 	  } catch (UnknownHostException e) {
 		  model.addAttribute("error","UnknownHostException");
 	  }
+	 
 	  model.addAttribute("dominio","aaa");
 	  model.addAttribute("hostname","bbb");
 	  model.addAttribute("url","ccc");
