@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ee">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav th:fragment="menu1" class="navbar navbar-expand-lg bg-light  navbar-light  fixed-top" style="--bs-bg-opacity: .8;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-skull-crossbones fa-fade"></i> Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav flex-row">
+
+                <li class="nav-item">
+                    <a
+                            class="nav-link pe-2"
+                            href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+                            rel="nofollow"
+                            target="_blank"
+                    >
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                            class="nav-link px-2"
+                            href="https://www.facebook.com/mdbootstrap"
+                            rel="nofollow"
+                            target="_blank"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                            class="nav-link px-2"
+                            href="https://twitter.com/MDBootstrap"
+                            rel="nofollow"
+                            target="_blank"
+                    >
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                            class="nav-link ps-2"
+                            href="https://github.com/mdbootstrap/mdb-ui-kit"
+                            rel="nofollow"
+                            target="_blank"
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark" type="submit">Buscar</button>
+            </form>
+            <ul class="navbar-nav flex-row">
+                <li class="nav-item">
+                    <a class="nav-link pe-2"
+                       href="login"
+                       rel="nofollow"
+                       target="_blank">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </a>
+                </li>
+            </ul>
+            <form class="d-flex" name="form_reloj">
+                <input type="text" name="reloj" size="10">
+            </form>
+
+        </div>
+    </div>
+</nav>
+</body>
+</html>
