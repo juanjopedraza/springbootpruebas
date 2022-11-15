@@ -19,6 +19,8 @@ public class MiControlador {
 
 	@GetMapping({"","/","/home","/inicio","/index"})
 	public String welcome(Model model) {
+
+
 		model.addAttribute("mensaje","Ramoncín");
 		return "index";
 	}
