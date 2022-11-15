@@ -67,9 +67,16 @@ public class MiControlador {
 	  model.addAttribute("url","ccc");
 	  return("pruebas/parametros");
   }
-  
-  
+
+	/**
+	 * 127.0.0.1 dominio1.es.tipo1
+	 * 127.0.0.1 dominio2.es.tipo1
+	 * 127.0.0.1 dominio1.es.tipo2
+	 * 127.0.0.1 dominio2.es.tipo2
+	 */
+
   /* backend */
+
   
   /*  url amigable */
   @GetMapping({"/login/{usuario}","/login","/usuario/{usuario}","/usuario"})
