@@ -41,7 +41,7 @@ public class MiControlador {
 	}
 
 	@GetMapping("/parametros")
-	public String parametros (Model model)   {
+	public String parametros (Model model) throws MalformedURLException {
 
         Dominio dom = new Dominio();
 		model.addAttribute("titulo", "Propiedades del servidor y URL");

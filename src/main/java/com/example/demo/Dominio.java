@@ -9,20 +9,27 @@ import java.net.UnknownHostException;
 
 public class Dominio {
     public Dominio() throws MalformedURLException {
-        InetAddress addr=null;
+
+        final String currentURL = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+        URL requestURL = new URL(currentURL);
+
+        this.puerto = requestURL.getPort();
+        this.host = requestURL.getHost();
+        this.protocolo = requestURL.getProtocol();
+        this.path = requestURL.getPath();
+        this.query = requestURL.getQuery();
+
+        /* información del servidor */
+        InetAddress iaddr=null;
         String hostnameCanonical=null;
         String hostname=null;
         byte[] address=null;
-
-        final String currentURL =
-                ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
-        URL requestURL = new URL(currentURL);
-
         try {
-            addr = InetAddress.getByName(InetAddress.getLocalHost().getHostName());
-            hostnameCanonical = addr.getCanonicalHostName();
-            address = addr.getAddress();
-            hostname = addr.getHostName();
+            iaddr = InetAddress.getByName(InetAddress.getLocalHost().getHostName());
+            this.addr = iaddr.toString();
+            this.canonnical = iaddr.getCanonicalHostName();
+            this.address = iaddr.getAddress();
+            this.hostname = iaddr.getHostName();
         } catch (UnknownHostException e) {
             this.error="UnknownHostException";
         }
@@ -34,12 +41,16 @@ public class Dominio {
         this.puerto= 80;
         this.tld= ".es.com";
     }
+    String strCurrentURL;
 
+    String host;
     String protocolo;
     String dominio;
     String tld;
     int puerto;
     String addr;
+
+    byte[] address;
     String canonnical;
     String hostname;
     String url;
@@ -54,6 +65,10 @@ public class Dominio {
     public String getAddr() {
         return addr;
     }
+    public byte[] getAddress() {
+        return address;
+    }
+
 
     public String getCanonnical() {
         return canonnical;
@@ -63,6 +78,9 @@ public class Dominio {
         return hostname;
     }
 
+    public String getHost() {
+        return host;
+    }
     public String getUrl() {
         return url;
     }
@@ -87,7 +105,7 @@ public class Dominio {
         return tld;
     }
 
-    public String getPuerto() {
+    public int getPuerto() {
         return puerto;
     }
 
