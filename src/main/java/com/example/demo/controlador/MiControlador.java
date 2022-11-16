@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import com.example.demo.Dominio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +20,9 @@ public class MiControlador {
 
 	@GetMapping({"","/","/home","/inicio","/index"})
 	public String welcome(Model model) {
-
-
 		model.addAttribute("mensaje","Ramoncín");
+
+		model.addAttribute("dominio","");
 		return "index";
 	}
 
@@ -40,46 +41,25 @@ public class MiControlador {
 	}
 
 	@GetMapping("/parametros")
-	public String parametros (Model model) throws MalformedURLException  {
+	public String parametros (Model model)   {
 
-		InetAddress addr=null;
-		String hostnameCanonical=null;
-		String hostname=null;
-		byte[] address=null;
-
-		final String currentURL =
-				ServletUriComponentsBuilder.
-						fromCurrentContextPath().
-						build().
-						toUriString();
-		URL requestURL = new URL(currentURL);
-
-		try {
-			addr = InetAddress.getByName(
-					InetAddress.getLocalHost().
-							getHostName());
-			hostnameCanonical = addr.getCanonicalHostName();
-			address = addr.getAddress();
-			hostname = addr.getHostName();
-		} catch (UnknownHostException e) {
-			model.addAttribute("error","UnknownHostException");
-		}
-		model.addAttribute("dominio","aaa");
+        Dominio dom = new Dominio();
 		model.addAttribute("titulo", "Propiedades del servidor y URL");
-		model.addAttribute("addr",addr);
-		model.addAttribute("hostnameCanonical",hostnameCanonical);
-		model.addAttribute("hostname",hostname);
-		model.addAttribute("address",address);
-		model.addAttribute("url",currentURL);
-		model.addAttribute("port",requestURL.getPort());
-		model.addAttribute("host",requestURL.getHost());
-		model.addAttribute("protocol",requestURL.getProtocol());
-		model.addAttribute("path",requestURL.getPath());
-		model.addAttribute("query",requestURL.getQuery());
-
-
-
+		model.addAttribute("addr",dom.getAddr());
+		model.addAttribute("hostnameCanonical",dom.getCanonnical());
+		model.addAttribute("hostname",dom.getHostname());
+		model.addAttribute("address",dom.getAddr());
+		/* importante */
+		model.addAttribute("url",dom.getUrl());
+		model.addAttribute("port",dom.getPuerto());
+		model.addAttribute("host",dom.getHostname());
+		model.addAttribute("protocol",dom.getProtocolo());
+		model.addAttribute("path",dom.getPath());
+		model.addAttribute("query",dom.getQuery());
+		model.addAttribute("dominio",dom.getDominio());
+		model.addAttribute("tld",dom.getTld());
 		return("pruebas/parametros");
+
 	}
 
 	/**
