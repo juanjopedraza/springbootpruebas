@@ -24,9 +24,11 @@ public class MiControlador {
 	String dominio;
 	Dominio dom;
 
+
 	public void inicializa() throws MalformedURLException {
 		this.dom  = new Dominio();
-		// arreglar para que se ejecute inicialice siempre como si estuviera en un constructor
+		// arreglar para que se ejecute inicialice siempre como si
+		// estuviera en un constructor
 	}
 
 	@GetMapping({"","/","/home","/inicio","/index"})
@@ -53,6 +55,7 @@ public class MiControlador {
 
 	@GetMapping("/parametros")
 	public String parametros (Model model) {
+
 		model.addAttribute("titulo", "Propiedades del servidor y URL");
 		model.addAttribute("addr",dom.getAddr());
 		model.addAttribute("hostnameCanonical",dom.getCanonnical());
