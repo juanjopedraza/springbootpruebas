@@ -35,10 +35,15 @@ public class Dominio {
             this.error="UnknownHostException";
         }
         this.url = currentURL;
-        int x=url.indexOf("://");
         int y=url.indexOf('.');
-        this.dominio = url.substring(x+3,y);
-        this.tld = url.substring(y+1).replace(":"+this.puerto,"");
+        if (y==-1) {
+            this.dominio= "sin-dominio";
+            this.tld = "sin-tld";
+        }
+        else {
+            this.dominio = url.substring(url.indexOf("://")+3,y);
+            this.tld = url.substring(y+1).replace(":"+this.puerto,"");
+        }
     }
     String host;
     String protocolo;

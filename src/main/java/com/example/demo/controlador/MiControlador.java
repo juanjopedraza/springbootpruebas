@@ -8,6 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import com.example.demo.Dominio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +17,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.annotation.PostConstruct;
+
 @Controller
 public class MiControlador {
+	String dominio;
+	Dominio dom;
+
+	public void inicializa() throws MalformedURLException {
+		this.dom  = new Dominio();
+		// arreglar para que se ejecute inicialice siempre como si estuviera en un constructor
+	}
 
 	@GetMapping({"","/","/home","/inicio","/index"})
-	public String welcome(Model model) {
+	public String welcome(Model model) throws MalformedURLException {
+		this.inicializa();
 		model.addAttribute("mensaje","Ramoncín");
-
-		model.addAttribute("dominio","");
+		model.addAttribute("dominio",dom.getDominio());
 		return "index";
 	}
 
@@ -41,9 +52,7 @@ public class MiControlador {
 	}
 
 	@GetMapping("/parametros")
-	public String parametros (Model model) throws MalformedURLException {
-
-        Dominio dom = new Dominio();
+	public String parametros (Model model) {
 		model.addAttribute("titulo", "Propiedades del servidor y URL");
 		model.addAttribute("addr",dom.getAddr());
 		model.addAttribute("hostnameCanonical",dom.getCanonnical());
