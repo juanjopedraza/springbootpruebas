@@ -31,8 +31,9 @@ public class MiControlador {
 	@GetMapping({"","/","/home","/inicio","/index"})
 	public String welcome(Model model) throws MalformedURLException {
 		this.buscaURL();
-		model.addAttribute("mensaje","Ramoncín");
+		model.addAttribute("mensaje","Ramoncín esto es una prueba");
 		model.addAttribute("dominio",dom.getDominio());
+		model.addAttribute("tld",dom.getTld());
 		return "index";
 	}
 

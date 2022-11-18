@@ -7,6 +7,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 
+import static java.net.IDN.toASCII;
+import static java.net.IDN.toUnicode;
+
 public class Dominio {
     public Dominio() throws MalformedURLException {
 
@@ -35,15 +38,17 @@ public class Dominio {
             this.error="UnknownHostException";
         }
         this.url = currentURL;
+        //Eliminamos www si existen
+        this.url = url.replace("www.","");
+        //Buscamos el primer . (http://eldominio.******
         int y=url.indexOf('.');
         if (y==-1) {
             this.dominio= "sin-dominio";
             this.tld = "sin-tld";
         }
         else {
-            this.dominio = url.substring(url.indexOf("://")+3,y);
-            //Arreglar tema Punycode
-            this.tld = url.substring(y+1).replace(":"+this.puerto,"");
+            this.dominio = toUnicode(url.substring(url.indexOf("://")+3,y));
+            this.tld = url.substring(y).replace(":"+this.puerto,"");
         }
     }
     String host;
