@@ -26,7 +26,11 @@ public class MiControlador {
 
 	public void buscaURL() throws MalformedURLException {
 			this.dom  = new Dominio();
+			// Registramos visita en BBDD
+		    /* TO-DO */
+
 	}
+
 
 	@GetMapping({"","/","/home","/inicio","/index"})
 	public String welcome(Model model) throws MalformedURLException {
