@@ -12,6 +12,7 @@ public class Dominio {
 
         final String currentURL = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
         URL requestURL = new URL(currentURL);
+        
 
         this.puerto = requestURL.getPort();
         this.host = requestURL.getHost();
@@ -34,15 +35,11 @@ public class Dominio {
             this.error="UnknownHostException";
         }
         this.url = currentURL;
-        int x=url.indexOf('.');
-        this.protocolo = url.substring(0,x);
+        int x=url.indexOf("://");
         int y=url.indexOf('.');
-        this.dominio = url.substring(x,y);
-        this.puerto= 80;
-        this.tld= ".es.com";
+        this.dominio = url.substring(x+3,y);
+        this.tld = url.substring(y+1).replace(":"+this.puerto,"");
     }
-    String strCurrentURL;
-
     String host;
     String protocolo;
     String dominio;
