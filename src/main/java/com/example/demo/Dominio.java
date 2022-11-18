@@ -42,6 +42,7 @@ public class Dominio {
         }
         else {
             this.dominio = url.substring(url.indexOf("://")+3,y);
+            //Arreglar tema Punycode
             this.tld = url.substring(y+1).replace(":"+this.puerto,"");
         }
     }

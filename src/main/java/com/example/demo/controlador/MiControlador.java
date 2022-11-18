@@ -24,16 +24,13 @@ public class MiControlador {
 	String dominio;
 	Dominio dom;
 
-
-	public void inicializa() throws MalformedURLException {
-		this.dom  = new Dominio();
-		// arreglar para que se ejecute inicialice siempre como si
-		// estuviera en un constructor
+	public void buscaURL() throws MalformedURLException {
+			this.dom  = new Dominio();
 	}
 
 	@GetMapping({"","/","/home","/inicio","/index"})
 	public String welcome(Model model) throws MalformedURLException {
-		this.inicializa();
+		this.buscaURL();
 		model.addAttribute("mensaje","Ramoncín");
 		model.addAttribute("dominio",dom.getDominio());
 		return "index";
@@ -54,8 +51,8 @@ public class MiControlador {
 	}
 
 	@GetMapping("/parametros")
-	public String parametros (Model model) {
-
+	public String parametros (Model model) throws MalformedURLException {
+		this.buscaURL();
 		model.addAttribute("titulo", "Propiedades del servidor y URL");
 		model.addAttribute("addr",dom.getAddr());
 		model.addAttribute("hostnameCanonical",dom.getCanonnical());
@@ -86,7 +83,9 @@ public class MiControlador {
 
 	/*  url amigable */
 	@GetMapping({"/login/{usuario}","/login","/usuario/{usuario}","/usuario"})
-	public String login(@PathVariable(name="usuario", required = false) String usuario, Model model) {
+	public String login(@PathVariable(name="usuario", required = false) String usuario,
+						Model model) throws MalformedURLException {
+		this.buscaURL();
 		model.addAttribute("titulo","Panel de control");
 		model.addAttribute("usuario",usuario);
 		return "backend/login";
@@ -94,7 +93,9 @@ public class MiControlador {
 
 	/* admin */
 	@GetMapping({"/admin","/intranet"})
-	public String admin(@RequestParam("usuario") Optional<String>  usuario, Model model) {
+	public String admin(@RequestParam("usuario") Optional<String>  usuario,
+						Model model) throws MalformedURLException {
+		this.buscaURL();
 		model.addAttribute("titulo","Intranet");
 		model.addAttribute("usuario",usuario.orElse(""));
 		return "admin/login";
