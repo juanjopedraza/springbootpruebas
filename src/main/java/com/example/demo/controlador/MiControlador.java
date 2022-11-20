@@ -86,8 +86,24 @@ public class MiControlador {
 	/* backend */
 
 
+	@GetMapping({"/springsecurity/{usuario}","/springsecurity"})
+	public String springsecurity(@PathVariable(name="usuario", required = false) String usuario,
+						Model model) throws MalformedURLException {
+		this.buscaURL();
+		model.addAttribute("titulo","Panel de control security");
+		model.addAttribute("usuario",usuario);
+		return "springsecurity/login";
+	}
+
+	/*@GetMapping({"/logout","/salir"})
+	public String logout( Model model) throws MalformedURLException {
+		this.buscaURL();
+		model.addAttribute("titulo","Panel de control security");
+		return "springsecurity/logout";
+	}*/
+
 	/*  url amigable */
-	@GetMapping({"/login/{usuario}","/login","/usuario/{usuario}","/usuario"})
+	@GetMapping({"/entrar/{usuario}","/entrar","/usuario/{usuario}","/usuario"})
 	public String login(@PathVariable(name="usuario", required = false) String usuario,
 						Model model) throws MalformedURLException {
 		this.buscaURL();
@@ -97,7 +113,7 @@ public class MiControlador {
 	}
 
 	/* admin */
-	@GetMapping({"/admin","/intranet"})
+	@GetMapping({"/admin","/intranet","/login"})
 	public String admin(@RequestParam("usuario") Optional<String>  usuario,
 						Model model) throws MalformedURLException {
 		this.buscaURL();
