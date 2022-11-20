@@ -1,0 +1,23 @@
+<div th:fragment="main1" class="flex-shrink-0">
+  <div class="container">
+    <i class="flag flag-us"></i>
+    <i class="flag flag-poland"></i>
+    <i class="flag flag-china"></i>
+    <h1>Hola Spring Boot <i class="fa-solid fa-leaf text-success fa-bounce"></i> + Thymeleaf <i
+            class="fa-brands fa-envira text-success fa-beat-fade"></i> = <i
+            class="fa-solid fa-heart fa-beat text-danger" style="--fa-animation-duration: 0.5s;"></i></h1>
+    <h1 th:text="${mensaje}">Aquí irá un mensaje inicial</h1>
+    <hr/>
+    <h1 th:text="${login}">Aquí un mensaje de login</h1>
+  </div>
+  <div class="container my-5">
+
+    <h1>Hello World</h1>
+
+    <p>Need support to get started? Watch our free video tutorials.</p>
+
+    <a class="btn btn-primary btn-rounded" href="https://mdbootstrap.com/docs/standard/getting-started/"
+       role="button" target="_blank">Watch tutorials</a>
+
+  </div>
+</div>
