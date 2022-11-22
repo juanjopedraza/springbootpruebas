@@ -1,14 +1,19 @@
 package com.example.demo.servicios;
 
 import com.example.demo.modelo.Empleado;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class EmpleadoServicio {
     private List<Empleado> repositorio = new ArrayList<>();
+
+    public EmpleadoServicio() {
+    }
 
     public Empleado add(Empleado e){
         repositorio.add(e);

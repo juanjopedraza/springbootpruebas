@@ -1,5 +1,7 @@
 package com.example.demo.modelo;
 
+import java.util.Objects;
+
 public class Empleado {
     private long id;
     private String nombre;
@@ -7,6 +9,19 @@ public class Empleado {
     private String telefono;
 
     public Empleado(){}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empleado empleado = (Empleado) o;
+        return getId() == empleado.getId() && getNombre().equals(empleado.getNombre()) && getEmail().equals(empleado.getEmail()) && getTelefono().equals(empleado.getTelefono());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNombre(), getEmail(), getTelefono());
+    }
 
     public Empleado (long id, String nombre, String email, String telefono){
         this.id = id;

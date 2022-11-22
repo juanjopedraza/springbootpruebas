@@ -10,7 +10,17 @@
 
 <header th:replace="header/nav :: mimenu"></header>
 
-<main th:replace="main/bienvenida :: main1"></main>
+<div th:switch="${pagina}">
+      <div th:case="list">
+            <main th:replace="empleado/list :: listado"></main>
+      </div>
+      <div th:case="*">
+            <main th:replace="main/bienvenida :: main1"></main>
+      </div>
+</div>
+
+
+
 
 <footer th:replace="foot/pie :: mipie"></footer>
 

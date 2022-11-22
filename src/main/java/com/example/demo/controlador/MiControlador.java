@@ -38,6 +38,7 @@ public class MiControlador {
 		model.addAttribute("mensaje","Ramoncín esto es una prueba");
 		model.addAttribute("dominio",dom.getDominio());
 		model.addAttribute("tld",dom.getTld());
+		model.addAttribute("pagina","inicio");
 		return "index";
 	}
 
