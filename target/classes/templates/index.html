@@ -10,12 +10,25 @@
 
 <header th:replace="header/nav :: mimenu"></header>
 
-<main th:replace="main/bienvenida :: main1"></main>
+<div th:switch="${pagina}">
+      <div th:case="list">
+            <main th:replace="empleado/list :: listado"></main>
+      </div>
+      <div th:case="alta">
+            <main th:replace="empleado/form :: alta"></main>
+      </div>
+      <div th:case="*">
+            <main th:replace="main/bienvenida :: main1"></main>
+      </div>
+</div>
+
+
+
 
 <footer th:replace="foot/pie :: mipie"></footer>
 
-<script src="webjars/jsquery/jquery.min.js"></script>
-<script src="webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="js/reloj.js"></script>
+<script src="/webjars/jsquery/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/reloj.js"></script>
 </body>
 </html>
